@@ -95,15 +95,29 @@ order by
 go
 
 ------------------------------------------------------------------------
--- -- Q3: Which employees combine low job satisfaction with frequent overtime?
--- select 
---     EmployeeNumber,
---     JobSatisfaction,
---     OverTime
--- from Employees
--- where JobSatisfaction <= 2
--- and OverTime = 1;
--- go
+--Q3: Which employees combine low job satisfaction with frequent overtime?
+select 
+    JobSatisfaction,  
+    case
+        when OverTime = 1 then 'Yes'
+        else 'No'
+    end as OverTimeStatus,
+    count(*) as Total_Emps,
+    sum(case when Attrition = 1 then 1 else 0 end) as Emps_left,
+    cast(
+        sum(case when Attrition = 1 then 1 else 0 end) * 100.0
+        / count(*)
+        as decimal(5,2)
+    ) as AttritionRate
+from Employees
+where JobSatisfaction <= 2
+and OverTime = 1
+group by 
+        JobSatisfaction,
+        OverTime
+order by
+        JobSatisfaction;
+go
 
 ------------------------------------------------------------------------
 -- Q4.A: Which department has the highest attrition,
