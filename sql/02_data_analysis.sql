@@ -32,7 +32,6 @@ select
     Department,
     count(*) as Total_Emps,
     sum(case when Attrition = 1 then 1 else 0 end) as Emps_Left,
-     
     cast(
         sum(case when Attrition = 1 then 1 else 0 end) * 100.0
         / count(*)
@@ -77,7 +76,7 @@ order by Attrition_Rate desc;
 go
 
 ------------------------------------------------------------------------
---Q2: What is the average monthly income by job level and attrition status?
+-- Q2: What is the average monthly income by job level and attrition status?
 select 
     JobLevel,
     case
@@ -95,7 +94,7 @@ order by
 go
 
 ------------------------------------------------------------------------
---Q3: Which employees combine low job satisfaction with frequent overtime?
+-- Q3: Which employees combine low job satisfaction with frequent overtime?
 select 
     JobSatisfaction,  
     case
