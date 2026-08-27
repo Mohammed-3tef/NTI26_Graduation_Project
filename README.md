@@ -1,7 +1,7 @@
 # IBM HR Analytics Employee Attrition Analysis
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![Google Colab](https://img.shields.io/badge/Google%20Colab-Notebook-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/)
 [![SQL Server](https://img.shields.io/badge/SQL%20Server-T--SQL-CC2927?logo=microsoftsqlserver&logoColor=white)](https://www.microsoft.com/sql-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
 
@@ -24,6 +24,7 @@ An end-to-end HR analytics project that investigates employee attrition using Py
 - [Folder Structure](#folder-structure)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Team Members](#team-members)
 - [License](#license)
 
 ---
@@ -172,7 +173,7 @@ The dataset contains a meaningful class imbalance, so the results below are repo
 
 - **SQL:** T-SQL business-question queries mirroring the Python analysis
 - **Python:** pandas, numpy, matplotlib, seaborn (data cleaning & EDA)
-- **Jupyter Notebook:** reproducible analysis workflow
+- **Google Colab:** reproducible notebook-based analysis workflow
 - **PowerPoint / Word:** project presentation and detailed report
 
 ---
@@ -186,15 +187,17 @@ NTI26_Graduation_Project
 │   ├── cleaned_data.csv               # Cleaned dataset after preprocessing
 │   └── raw_data.csv                   # Original raw dataset
 │
-├── dashboard                          # Dashboard workspace (currently empty)
+├── dashboards                         # Dashboard workspace (currently empty)
+│   ├── dashboard.pbix                 # Power BI dashboard file (to be created)
+│   └── dashboard.xlsx                 # Excel dashboard file (to be created)
 │
 ├── docs
 │   ├── presentation.pptx              # Project presentation
 │   └── report.docx                    # Detailed project report
 │
 ├── python
-│   ├── 01_data_cleaning.ipynb         # Jupyter notebook for data cleaning and preprocessing
-│   └── 02_data_analysis.ipynb         # Jupyter notebook for data analysis and visualization
+│   ├── 01_data_cleaning.ipynb         # Colab notebook for data cleaning and preprocessing
+│   └── 02_data_analysis.ipynb         # Colab notebook for data analysis and visualization
 │
 ├── sql
 │   ├── 01_database.sql                # SQL script for database creation and initial setup
@@ -210,8 +213,7 @@ NTI26_Graduation_Project
 
 ### Prerequisites
 
-- Python 3.9 or newer
-- Jupyter Notebook or JupyterLab
+- Google account with access to Google Colab
 - SQL Server (optional, for running the T-SQL scripts)
 
 ### Setup
@@ -226,25 +228,30 @@ NTI26_Graduation_Project
    cd NTI26_Graduation_Project
    ```
 
-3. Install the required Python packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
+3. Open the notebooks from the `python` folder in [Google Colab](https://colab.research.google.com/).
 
-4. Launch Jupyter from the project root:
-
+4. Install the required Python packages in a Colab cell:
    ```bash
-   jupyter notebook
+   !pip install -r requirements.txt
    ```
 
 ## Usage
 
-1. Run `python/01_data_cleaning.ipynb` to audit and clean `data/raw_data.csv`. The notebook writes `data/cleaned_data.csv`.
+1. Run `python/01_data_cleaning.ipynb` in Google Colab to audit and clean `data/raw_data.csv`. The notebook writes `data/cleaned_data.csv`.
 2. Run `python/02_data_analysis.ipynb` to reproduce the exploratory and diagnostic analysis.
 3. Execute `sql/01_database.sql` and then `sql/02_data_analysis.sql` in SQL Server when SQL validation is required.
 4. Review the findings and recommendations in this README and the generated notebook outputs.
 
 The SQL scripts are designed for SQL Server and create the `HRAttritionDB` database and analysis objects used by the project.
+
+## Team Members
+
+| Name | GitHub Username |
+|------|-----------------|
+| Hla Hany | [@hlahany2005-ux](https://github.com/hlahany2005-ux) |
+| Mohammed Atef | [@Mohammed-3tef](https://github.com/Mohammed-3tef) |
+| Mahmoud Hassan | [@mahmoud-hassan77](https://github.com/mahmoud-hassan77) |
+| Youssef Aly | [@youssefalyy99](https://github.com/youssefalyy99) |
 
 ## License
 
