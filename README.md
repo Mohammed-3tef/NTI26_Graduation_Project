@@ -20,11 +20,11 @@ An end-to-end HR analytics project that investigates employee attrition using Py
 - [Key Findings](#key-findings)
 - [Business Insights](#business-insights)
 - [Recommendations](#recommendations)
+- [Complete Report](#complete-report)
 - [Tech Stack](#tech-stack)
 - [Folder Structure](#folder-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Complete Report](#complete-report)
 - [Team Members](#team-members)
 - [License](#license)
 
