@@ -194,9 +194,9 @@ NTI26_Graduation_Project
 │   ├── cleaned_data.csv               # Cleaned dataset after preprocessing
 │   └── raw_data.csv                   # Original raw dataset
 │
-├── dashboards                         # Dashboard workspace (currently empty)
-│   ├── dashboard.pbix                 # Power BI dashboard file (to be created)
-│   └── dashboard.xlsx                 # Excel dashboard file (to be created)
+├── dashboards                         # Dashboard workspace
+│   ├── dashboard.pbix                 # Power BI dashboard file
+│   └── dashboard.xlsx                 # Excel dashboard file
 │
 ├── docs
 │   ├── presentation.pptx              # Project presentation
