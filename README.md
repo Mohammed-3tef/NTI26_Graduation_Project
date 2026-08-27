@@ -24,6 +24,7 @@ An end-to-end HR analytics project that investigates employee attrition using Py
 - [Folder Structure](#folder-structure)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Complete Report](#complete-report)
 - [Team Members](#team-members)
 - [License](#license)
 
@@ -169,6 +170,12 @@ The dataset contains a meaningful class imbalance, so the results below are repo
 
 ---
 
+## Complete Report
+
+For a detailed explanation of the project methodology, analysis, findings, and recommendations, see the [complete project report](docs/pdf/report.pdf).
+
+---
+
 ## Tech Stack
 
 - **SQL:** T-SQL business-question queries mirroring the Python analysis
@@ -235,6 +242,8 @@ NTI26_Graduation_Project
    !pip install -r requirements.txt
    ```
 
+---
+
 ## Usage
 
 1. Run `python/01_data_cleaning.ipynb` in Google Colab to audit and clean `data/raw_data.csv`. The notebook writes `data/cleaned_data.csv`.
@@ -243,6 +252,8 @@ NTI26_Graduation_Project
 4. Review the findings and recommendations in this README and the generated notebook outputs.
 
 The SQL scripts are designed for SQL Server and create the `HRAttritionDB` database and analysis objects used by the project.
+
+---
 
 ## Team Members
 
