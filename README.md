@@ -20,7 +20,7 @@ An end-to-end HR analytics project that investigates employee attrition using Py
 - [Key Findings](#key-findings)
 - [Business Insights](#business-insights)
 - [Recommendations](#recommendations)
-- [Complete Report](#complete-report)
+- [Complete Report & Presentation](#complete-report--presentation)
 - [Tech Stack](#tech-stack)
 - [Folder Structure](#folder-structure)
 - [Installation](#installation)
@@ -102,8 +102,8 @@ This project analyzes the **IBM HR Analytics Employee Attrition & Performance** 
 *(`python/01_data_cleaning.ipynb`)*
 
 - **Initial audit:** confirmed 1,470 rows × 35 columns, **0 duplicate records**, and **0 missing values** — no imputation for missingness was required.
+- **Data types:** confirmed 26 numeric and 9 object/string columns, with no incorrect data types detected.
 - **Column pruning:** dropped 4 uninformative columns — `EmployeeCount`, `Over18`, `StandardHours` (zero-variance / constant) and `EmployeeNumber` (ID column) — leaving 31 columns.
-- **Outlier handling (IQR method):** flagged rows where any continuous numeric column fell outside `Q1 - 1.5×IQR` / `Q3 + 1.5×IQR`. **240 rows (~16.3%)** contained at least one outlier (e.g., very high salaries, long tenures). These were treated as valid business outliers and **imputed with the column median** rather than dropped, to preserve sample size.
 - **Type optimization:** cast all categorical/text columns (`Attrition`, `Department`, `JobRole`, `OverTime`, etc.) to pandas `category` dtype.
 - **Output:** cleaned dataset exported to `data/cleaned_data.csv`.
 
@@ -138,41 +138,43 @@ The dataset contains a meaningful class imbalance, so the results below are repo
 |---|---|
 | Overall attrition rate | **16.12%** (237 of 1,470 employees) |
 | Highest-attrition department | **Sales — 20.63%** (HR 19.05%, R&D 13.84%) |
-| Highest-attrition job role | **Sales Representative — 39.76%** (vs. 4.90% for Manager, 2.50% for Research Director) |
+| Highest-attrition job role | **Sales Representative — 39.76%** (Laboratory Technician 23.94%, Human Resources 23.08%; Manager 4.90% and Research Director 2.50% were lowest) |
 | Sales dept. breakdown | Sales Representative 39.76% · Sales Executive 17.48% · Manager 5.41% |
 | Overtime vs. no overtime | **30.53%** vs. **10.44%** attrition (~3x higher with overtime) |
 | Low satisfaction + overtime | 35.71%–37.68% attrition (more than double the company average) |
-| Attrition by tenure | 0–2 yrs: **29.82%** · 3–5 yrs: 13.01% · 6–10 yrs: 12.28% · 11–15 yrs: 6.48% · 16+ yrs: 8.82% |
-| Avg. monthly income, leavers vs. stayers | **$4,480** vs. **$5,645** |
+| Attrition by tenure | 0–2 yrs: **29.82%** · 3–5 yrs: 13.82% · 6–10 yrs: 12.28% · 11–15 yrs: 6.48% · 16+ yrs: 9.42% |
+| Avg. monthly income, leavers vs. stayers | **$4,787** vs. **$6,833** (roughly a 30% gap) |
 | Avg. job satisfaction (1–4), leavers vs. stayers | 2.47 vs. 2.78 |
 | Avg. work-life balance (1–4), leavers vs. stayers | 2.66 vs. 2.78 |
-| Income by job level | Rises consistently with job level; the leaver/stayer income gap is inconsistent across levels (leavers earn less at Levels 1–2, more at Levels 3–4) |
+| Income by job level | Rises from about $2,700 at Level 1 to roughly $19,300 at Level 5; the leaver/stayer income gap is inconsistent across levels |
 
 ---
 
 ## Business Insights
 
-- **Sales is the epicenter of attrition**, and within Sales the problem is almost entirely a frontline issue — Sales Representatives leave at more than 7x the rate of Sales Managers.
-- **Overtime is one of the strongest predictors of attrition** across the whole company, and its effect compounds with low job satisfaction.
-- **The first two years of employment are the highest-risk window** — attrition falls steadily as tenure increases, up to a slight uptick after 16+ years (possibly retirement-related).
-- **Compensation is a contributing factor but not the sole driver** — leavers earn notably less on average, but the income gap is inconsistent across job levels, meaning satisfaction, workload, and overtime also play a significant role.
+- **Sales is the highest-risk department**, and the problem is concentrated in Sales Representatives, who leave at more than 7x the rate of Sales Managers.
+- **Overtime is strongly associated with attrition** — employees who work overtime leave at roughly three times the rate of those who do not, with risk exceeding 35% among employees reporting low job satisfaction.
+- **The first two years are the highest-risk tenure window** — attrition drops sharply through 11–15 years, then ticks up modestly among employees with 16+ years at the company.
+- **Attrition appears multifactorial** — leavers earn less and report lower job satisfaction and slightly lower work-life balance, but the income relationship is inconsistent across job levels, so salary alone is unlikely to explain turnover.
 
 ---
 
 ## Recommendations
 
-- Reduce excessive overtime, especially within the Sales department.
-- Prioritize retention programs specifically for Sales Representatives, the single highest-risk role.
+- Reduce excessive overtime, especially within the Sales department, and monitor workload to prevent burnout.
+- Prioritize retention strategies for Sales Representatives, including a review of sales targets, workload, performance expectations, coaching, and career progression.
 - Strengthen onboarding, mentoring/buddy programs, and regular check-ins during employees' first two years.
-- Review compensation for lower-income employee groups, since leavers earn noticeably less on average.
-- Increase employee engagement and job satisfaction initiatives, with special attention to employees who combine low satisfaction with frequent overtime.
-- Conduct further analysis (e.g., exit interviews) to understand the modest attrition uptick among 16+ year employees.
+- Increase engagement and job satisfaction through recognition, career development, surveys, and one-on-one check-ins, especially for employees combining low satisfaction with overtime.
+- Review compensation competitiveness for lower-income groups and investigate income equity at Job Level 3, where leavers earned more than stayers.
+- Continue work-life balance initiatives and investigate the modest attrition uptick among employees with 16+ years at the company.
 
 ---
 
-## Complete Report
+## Complete Report & Presentation
 
 For a detailed explanation of the project methodology, analysis, findings, and recommendations, see the [complete project report](docs/pdf/report.pdf).
+
+For a concise visual overview of the project, analysis, findings, and recommendations, see the [complete project presentation](docs/pdf/presentation.pdf).
 
 ---
 
@@ -181,7 +183,7 @@ For a detailed explanation of the project methodology, analysis, findings, and r
 - **SQL:** T-SQL business-question queries mirroring the Python analysis
 - **Python:** pandas, numpy, matplotlib, seaborn (data cleaning & EDA)
 - **Google Colab:** reproducible notebook-based analysis workflow
-- **PowerPoint / Word:** project presentation and detailed report
+- **PDF:** complete project presentation and detailed report
 
 ---
 
@@ -199,8 +201,8 @@ NTI26_Graduation_Project
 │   └── dashboard.xlsx                 # Excel dashboard file
 │
 ├── docs
-│   ├── presentation.pptx              # Project presentation
-│   └── report.docx                    # Detailed project report
+│   ├── presentation.pdf               # Complete project presentation
+│   └── report.pdf                     # Detailed project report
 │
 ├── python
 │   ├── 01_data_cleaning.ipynb         # Colab notebook for data cleaning and preprocessing
